@@ -54,18 +54,14 @@ class LocationController extends Controller
 
         $stateNameArray = explode(' ', $stateDb['name']);
 
-
-
         $tmp = $stateNameArray[1] == 'State'?'':' '.$stateNameArray[1];
-        $state = $stateNameArray[0].$tmp;
 
-//        dd($state);
+        $state = $stateNameArray[0].$tmp;
 
         $country = 'Nigeria';
 
         $json = Utility::getWeatherState($state);
 
-         dd($json);
 
         $location =  new Location();
         $location->state_id = $request->get('state_id');
